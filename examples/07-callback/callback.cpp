@@ -320,7 +320,7 @@ public:
 		m_reset  = 0
 			| BGFX_RESET_VSYNC
 			| BGFX_RESET_CAPTURE
-			| BGFX_RESET_MSAA_X16
+			//| BGFX_RESET_MSAA_X16
 			;
 
 		bgfx::init(

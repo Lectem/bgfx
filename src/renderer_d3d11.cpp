@@ -1319,7 +1319,7 @@ BX_PRAGMA_DIAGNOSTIC_POP();
 						goto error;
 					}
 
-#if 0
+#if 1
 					m_swapEffect      = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
 					m_swapBufferCount = 2;
 #else
@@ -6786,8 +6786,9 @@ BX_PRAGMA_DIAGNOSTIC_POP();
 		perfStats.numDraw       = statsKeyType[0];
 		perfStats.numCompute    = statsKeyType[1];
 		perfStats.maxGpuLatency = maxGpuLatency;
+#if BGFX_VENDOR_API
 		m_nvapi.getMemoryInfo(perfStats.gpuMemoryUsed, perfStats.gpuMemoryMax);
-
+#endif
 		if (_render->m_debug & (BGFX_DEBUG_IFH|BGFX_DEBUG_STATS) )
 		{
 			PIX_BEGINEVENT(D3DCOLOR_FRAME, L"debugstats");

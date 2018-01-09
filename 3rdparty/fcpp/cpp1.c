@@ -144,10 +144,16 @@ int fppPreProcess(struct fppTag *tags)
   }
   fflush(stdout);
 // BK -  fclose(stdout);
-
+  deldefines(global);
+  
+  int retVal = IO_NORMAL;
   if (global->errors > 0 && !global->eflag)
-    return(IO_ERROR);
-  return(IO_NORMAL);       /* No errors or -E option set   */
+    retVal = IO_ERROR;
+  free(global->tokenbuf);
+  free(global->functionname);
+  free(global->showspace);
+  free(global);
+  return retVal;       /* No errors or -E option set   */
 }
 
 INLINE FILE_LOCAL

@@ -208,18 +208,19 @@ public:
 							bgfx::destroy(m_fbh[viewId]);
 							m_fbh[viewId].idx = bgfx::kInvalidHandle;
 						}
+						else {
+							win.m_nwh = m_state.m_nwh;
+							win.m_width = m_state.m_width;
+							win.m_height = m_state.m_height;
 
-						win.m_nwh    = m_state.m_nwh;
-						win.m_width  = m_state.m_width;
-						win.m_height = m_state.m_height;
-
-						if (NULL != win.m_nwh)
-						{
-							m_fbh[viewId] = bgfx::createFrameBuffer(win.m_nwh, uint16_t(win.m_width), uint16_t(win.m_height) );
-						}
-						else
-						{
-							win.m_handle.idx = UINT16_MAX;
+							if (NULL != win.m_nwh)
+							{
+								m_fbh[viewId] = bgfx::createFrameBuffer(win.m_nwh, uint16_t(win.m_width), uint16_t(win.m_height));
+							}
+							else
+							{
+								win.m_handle.idx = UINT16_MAX;
+							}
 						}
 					}
 				}
