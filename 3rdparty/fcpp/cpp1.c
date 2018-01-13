@@ -144,7 +144,7 @@ int fppPreProcess(struct fppTag *tags)
   }
   fflush(stdout);
 // BK -  fclose(stdout);
-  deldefines(global);
+  delalldefines(global);
   
   int retVal = IO_NORMAL;
   if (global->errors > 0 && !global->eflag)
